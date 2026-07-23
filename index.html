@@ -204,7 +204,8 @@
                         proofImage: row[5] || ''  // Imagem(se houver)
                     });
                 }
-
+                console.log('Nodes parsed:', nodes.length);
+                console.log('Edges parsed:', edges.length);
                 document.getElementById('loading').classList.add('hidden');
                 buildGraph(nodes, edges);
             })
