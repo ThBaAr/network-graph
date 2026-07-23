@@ -234,6 +234,10 @@
             };
 
             function createCircularImage(url, size, callback) {
+                if (!url || url.trim() === '') {
+                    callback(null);
+                    return;
+                }    
                 var img = new Image();
                 img.crossOrigin = 'Anonymous';
                 img.onload = function() {
