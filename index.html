@@ -195,7 +195,7 @@
                 var edges = [];
                 for (var i = 1; i < edgesRaw.length; i++) {
                     var row = edgesRaw[i];
-                    if (row.length < 4 || row[1] === '') continue; // skip empty rows
+                    if (row.length < 4 || row[1] === '' || row[2] === '' || row[3] === '') continue; // skip empty rows
                     edges.push({
                         id: row[1],               // id
                         source: row[2],           // source(id)
