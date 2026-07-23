@@ -235,9 +235,9 @@
 
             function createCircularImage(url, size, callback) {
                 if (!url || url.trim() === '') {
-                    callback(null);
+                    callback('');
                     return;
-                }    
+                }
                 var img = new Image();
                 img.crossOrigin = 'Anonymous';
                 img.onload = function() {
@@ -255,7 +255,7 @@
                     ctx.drawImage(img, x, y, img.width * scale, img.height * scale);
                     callback(canvas.toDataURL('image/png'));
                 };
-                img.onerror = function() { callback(null); };
+                img.onerror = function() { callback(''); };
                 img.src = url;
             }
 
