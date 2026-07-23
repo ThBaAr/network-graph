@@ -266,23 +266,16 @@
             nodes.forEach(function(node) {
                 createCircularImage(node.image, 120, function(dataUrl) {
                     processedCount++;
-                    if (dataUrl) {
-                        processedNodes.push({
-                            id: node.id,
-                            label: node.label,
-                            color: node.color,
-                            image: dataUrl,
-                            description: node.description
-                        });
-                    } else {
-                        processedNodes.push({
-                            id: node.id,
-                            label: node.label,
-                            color: node.color || '#4A90D9',
-                            image: '',
-                            description: node.description
-                        });
+                    var nodeData = {
+                        id: node.id,
+                        label: node.label,
+                        color: node.color || '#4A90D9',
+                        description: node.description
+                    };
+                    if (dataUrl && dataUrl !== '') {
+                        nodeData.image = dataUrl;
                     }
+                    processedNodes.push(nodeData);
                     if (processedCount === totalNodes) {
                         initCytoscape();
                     }
