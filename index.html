@@ -275,7 +275,13 @@
                             description: node.description
                         });
                     } else {
-                        processedNodes.push(node);
+                        processedNodes.push({
+                            id: node.id,
+                            label: node.label,
+                            color: node.color || '#4A90D9',
+                            image: '',
+                            description: node.description
+                        });
                     }
                     if (processedCount === totalNodes) {
                         initCytoscape();
